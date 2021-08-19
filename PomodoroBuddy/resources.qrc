@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/bg.png</file>
+        <file>resources/Close.png</file>
+        <file>resources/counter.png</file>
+        <file>resources/Div Line.png</file>
+        <file>resources/highscore.png</file>
+        <file>resources/interruptBtn.png</file>
+        <file>resources/Minimize.png</file>
+        <file>resources/pomodorobuddy.png</file>
+        <file>resources/settingsBtn.png</file>
+        <file>resources/startBtn.png</file>
+        <file>resources/statsBtn.png</file>
+        <file>resources/stopBtn.png</file>
+        <file>resources/timer.png</file>
+        <file>resources/INTERRUPT.png</file>
+        <file>resources/SETTINGS.png</file>
+        <file>resources/START.png</file>
+        <file>resources/STATS.png</file>
+        <file>resources/STOP.png</file>
+        <file>resources/POMODORO COUNTER.png</file>
+        <file>resources/POMODORO HIGHSCORE.png</file>
+        <file>resources/OK.png</file>
+        <file>resources/message1.png</file>
+        <file>resources/message2.png</file>
+        <file>resources/message3.png</file>
+    </qresource>
+</RCC>
