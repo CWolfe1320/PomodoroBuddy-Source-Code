@@ -349,6 +349,82 @@ background-repeat: none;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QGraphicsView" name="border1">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border1{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="border2">
+   <property name="geometry">
+    <rect>
+     <x>1279</x>
+     <y>0</y>
+     <width>1</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border2{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="border3">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border3{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="border4">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>719</y>
+     <width>1280</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border4{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

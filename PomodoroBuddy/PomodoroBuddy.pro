@@ -12,15 +12,18 @@ SOURCES += \
     alertbox.cpp \
     main.cpp \
     stats.cpp \
+    statsbox.cpp \
     widget.cpp
 
 HEADERS += \
     alertbox.h \
     stats.h \
+    statsbox.h \
     widget.h
 
 FORMS += \
     alertbox.ui \
+    statsbox.ui \
     widget.ui
 
 # Default rules for deployment.

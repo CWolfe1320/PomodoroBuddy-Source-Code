@@ -5,6 +5,9 @@
 #include <QBrush>
 #include <QPalette>
 #include <QColor>
+#include <chrono>
+#include <ctime>
+
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -23,6 +26,11 @@ Widget::Widget(QWidget *parent)
     timer->start(1000);
 
 
+    auto endTime = std::chrono::system_clock::now();
+    time_t end_time = std::chrono::system_clock::to_time_t(endTime);
+    qDebug() << std::ctime(&end_time);
+
+    stats->show();
 }
 
 Widget::~Widget()

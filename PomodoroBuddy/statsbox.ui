@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>statsBox</class>
+ <widget class="QWidget" name="statsBox">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>150</y>
+     <width>781</width>
+     <height>425</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#scrollArea{
+border: none;
+background-color: rgb(194, 249, 187);
+}
+
+/* Vertical Scrollbar */
+
+QScrollBar:vertical{
+	border: 1px solid rgb(32, 6, 59);
+	background-color: rgb(227, 252, 223);
+	width: 35px;
+	margin: 10px 0 0px;
+}
+QScrollBar:add-page:vertical{
+	background-color: rgb(227, 252, 223);
+}
+QScrollBar:sub-page:vertical{
+	background-color: rgb(227, 252, 223);
+}
+
+/* Handlebar Vertical */
+
+QScrollBar::handle::vertical{
+	border: 1px solid rgb(32, 6, 59);
+	min-height: 110px;
+	background-color: rgb(183, 228, 190);
+}
+QScrollBar::handle:vertical:hover{
+	background-color: rgb(32, 6, 59);
+}
+/*Scrollbar top buttons */
+QScrollBar::sub-line:vertical{
+	border: none;
+	width: 0px;
+	height: 0px;
+	background-color: rgb(227, 252, 223);
+}
+/*Scrollbar bottom buttons */
+QScrollBar::add-line:vertical{
+	border: none;
+	width: 0px;
+	height: 0px;
+	background-color: rgb(227, 252, 223);
+}</string>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>746</width>
+      <height>9018</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(194, 249, 187);</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QFrame" name="scrollWindow">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>9000</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(227, 252, 223);
+border: 1px solid rgb(32, 6, 59);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QGraphicsView" name="border2">
+   <property name="geometry">
+    <rect>
+     <x>799</x>
+     <y>1</y>
+     <width>1</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border2{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="border3">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border3{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="border1">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border1{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="border4">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>599</y>
+     <width>800</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border4{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="titleBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>47</y>
+     <width>800</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#titleBar{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="closeBtn">
+   <property name="geometry">
+    <rect>
+     <x>755</x>
+     <y>5</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#closeBtn{
+background-color:transparent;
+border-image: url(:/resources/Close.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="statsTitle">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>63</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#statsTitle{
+background-color:transparent;
+border-image: url(:/resources/statsTitle.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dateBtn">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>67</y>
+     <width>109</width>
+     <height>76</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#dateBtn{
+background-color:transparent;
+border-image: url(:/resources/dateBtn.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pomodoroBtn">
+   <property name="geometry">
+    <rect>
+     <x>253</x>
+     <y>67</y>
+     <width>191</width>
+     <height>76</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pomodoroBtn{
+background-color:transparent;
+border-image: url(:/resources/pomodoroBtn.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="durationBtn">
+   <property name="geometry">
+    <rect>
+     <x>579</x>
+     <y>67</y>
+     <width>164</width>
+     <height>76</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#durationBtn{
+background-color:transparent;
+border-image: url(:/resources/durationBtn.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

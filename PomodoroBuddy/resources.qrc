@@ -24,5 +24,15 @@
         <file>resources/message1.png</file>
         <file>resources/message2.png</file>
         <file>resources/message3.png</file>
+        <file>resources/dateAscend.png</file>
+        <file>resources/dateBtn.png</file>
+        <file>resources/dateDescend.png</file>
+        <file>resources/durationAscend.png</file>
+        <file>resources/durationBtn.png</file>
+        <file>resources/durationDescend.png</file>
+        <file>resources/pomodoroAscend.png</file>
+        <file>resources/pomodoroBtn.png</file>
+        <file>resources/pomodoroDescend.png</file>
+        <file>resources/statsTitle.png</file>
     </qresource>
 </RCC>

@@ -7,6 +7,7 @@
 #include <QTimer>
 
 #include "alertbox.h"
+#include "statsbox.h"
 
 
 
@@ -79,6 +80,7 @@ private:
 
 
     alertBox *alert = new alertBox();
+    statsBox *stats = new statsBox();
 
     int pomCounter = 0;
 
