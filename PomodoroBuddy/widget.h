@@ -8,6 +8,7 @@
 
 #include "alertbox.h"
 #include "statsbox.h"
+#include "iowrapper.h"
 
 
 
@@ -38,6 +39,8 @@ private slots:
     void on_stopBtn_clicked();
 
     void on_interruptBtn_clicked();
+
+    void on_statsBtn_clicked();
 
 private:
     Ui::Widget *ui;
@@ -72,11 +75,21 @@ private:
     int lBMinutes;
     int lBSeconds;
 
+    //Date/Time tracking
+    std::chrono::time_point<std::chrono::system_clock> startTime;
+    std::chrono::time_point<std::chrono::system_clock> endTime;
+
+    std::chrono::duration<double> elapsedTime;
+
+    std::time_t endDate;
+
+    //Private functions
     void timerSetup();
     void timerAssemble();
     void messageBox();
     void messageAccepted();
     void pomodoroAssemble();
+    void statTime(bool startSwitch);
 
 
     alertBox *alert = new alertBox();

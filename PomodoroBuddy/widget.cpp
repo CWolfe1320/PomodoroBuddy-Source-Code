@@ -24,13 +24,6 @@ Widget::Widget(QWidget *parent)
     connect(timer,SIGNAL(timeout()),this,SLOT(interruptFunction()));
     timerSetup();
     timer->start(1000);
-
-
-    auto endTime = std::chrono::system_clock::now();
-    time_t end_time = std::chrono::system_clock::to_time_t(endTime);
-    qDebug() << std::ctime(&end_time);
-
-    stats->show();
 }
 
 Widget::~Widget()
@@ -202,6 +195,24 @@ void Widget::pomodoroAssemble()
     ui->pomCounter->setText(pomodoroStreak);
 }
 
+void Widget::statTime(bool startSwitch)
+{
+    if (startSwitch){
+        startTime = std::chrono::system_clock::now();
+    }
+    else if(!startSwitch){
+        endTime = std::chrono::system_clock::now();
+
+        elapsedTime = endTime - startTime;
+
+        endDate = std::chrono::system_clock::to_time_t(endTime);
+
+        qDebug() << "Date + Time: " << std::ctime(&endDate);
+        qDebug() << "Elapsed time: " << elapsedTime.count() << "s";
+        qDebug() << "Pomodoros: " << pomCounter;
+    }
+}
+
 void Widget::mousePressEvent(QMouseEvent *event)
 {
     //This method tests whether or not the mouse is clicked onto the widget window.
@@ -251,6 +262,7 @@ void Widget::on_startBtn_clicked()
 
     currSession = true;
 
+    statTime(true);
 }
 
 
@@ -267,10 +279,16 @@ void Widget::on_stopBtn_clicked()
     alert->setMessage(1);
     alert->hide();
 
+    currSession = false;
+
+    statTime(false);
+
+    ioWrapper(pomCounter, elapsedTime, endDate);
+
+    //Input sending class that will take pomCounter, endDate, and elapsedTime. Wrapper for stats output.
+
     pomCounter = 0;
     pomodoroAssemble();
-
-    currSession = false;
 }
 
 
@@ -279,5 +297,11 @@ void Widget::on_interruptBtn_clicked()
     interruptProc = true;
     timerProc = false;
     ui->startBtn->setDisabled(false);
+}
+
+
+void Widget::on_statsBtn_clicked()
+{
+    stats->show();
 }
 

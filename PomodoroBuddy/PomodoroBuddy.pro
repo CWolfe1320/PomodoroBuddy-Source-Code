@@ -10,14 +10,14 @@ CONFIG += c++11
 
 SOURCES += \
     alertbox.cpp \
+    iowrapper.cpp \
     main.cpp \
-    stats.cpp \
     statsbox.cpp \
     widget.cpp
 
 HEADERS += \
     alertbox.h \
-    stats.h \
+    iowrapper.h \
     statsbox.h \
     widget.h
 

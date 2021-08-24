@@ -246,7 +246,7 @@ background-repeat: none;
   <widget class="QPushButton" name="dateBtn">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>67</y>
      <width>109</width>
      <height>76</height>

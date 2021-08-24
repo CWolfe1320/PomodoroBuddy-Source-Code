@@ -25,6 +25,13 @@ private:
     Ui::statsBox *ui;
     QPoint m_Diff;
 
+
+    bool durationSwitch = false;
+
+    bool dateSwitch = false;
+
+    bool pomSwitch = false;
+
 protected:
     void paintEvent(QPaintEvent *event);
     void mousePressEvent(QMouseEvent *event);
@@ -34,6 +41,9 @@ protected:
 
 private slots:
     void on_closeBtn_clicked();
+    void on_dateBtn_clicked();
+    void on_pomodoroBtn_clicked();
+    void on_durationBtn_clicked();
 };
 
 #endif // STATSBOX_H

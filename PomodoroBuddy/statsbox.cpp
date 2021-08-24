@@ -66,3 +66,51 @@ void statsBox::on_closeBtn_clicked()
     hide();
 }
 
+
+void statsBox::on_dateBtn_clicked()
+{
+    ui->pomodoroBtn->setStyleSheet("border-image: url(:/resources/pomodoroBtn.png)");
+    ui->durationBtn->setStyleSheet("border-image: url(:/resources/durationBtn.png)");
+
+    dateSwitch = !dateSwitch;
+
+    if(dateSwitch){
+        ui->dateBtn->setStyleSheet("border-image: url(:/resources/dateDescend.png)");
+    }
+    else if(!dateSwitch){
+        ui->dateBtn->setStyleSheet("border-image: url(:/resources/dateAscend.png)");
+    }
+}
+
+
+void statsBox::on_pomodoroBtn_clicked()
+{
+    ui->dateBtn->setStyleSheet("border-image: url(:/resources/dateBtn.png)");
+    ui->durationBtn->setStyleSheet("border-image: url(:/resources/durationBtn.png)");
+
+    pomSwitch = !pomSwitch;
+
+    if(pomSwitch){
+        ui->pomodoroBtn->setStyleSheet("border-image: url(:/resources/pomodoroDescend.png)");
+    }
+    else if(!pomSwitch){
+        ui->pomodoroBtn->setStyleSheet("border-image: url(:/resources/pomodoroAscend.png)");
+    }
+}
+
+
+void statsBox::on_durationBtn_clicked()
+{
+    ui->dateBtn->setStyleSheet("border-image: url(:/resources/dateBtn.png)");
+    ui->pomodoroBtn->setStyleSheet("border-image: url(:/resources/pomodoroBtn.png)");
+
+    durationSwitch = !durationSwitch;
+
+    if(durationSwitch){
+        ui->durationBtn->setStyleSheet("border-image: url(:/resources/durationDescend.png)");
+    }
+    else if(!durationSwitch){
+        ui->durationBtn->setStyleSheet("border-image: url(:/resources/durationAscend.png)");
+    }
+}
+
