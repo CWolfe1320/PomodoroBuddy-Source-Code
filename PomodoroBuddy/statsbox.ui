@@ -102,6 +102,28 @@ border: 1px solid rgb(32, 6, 59);</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QTextBrowser" name="statsDisplay">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>691</width>
+          <height>8960</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#statsDisplay{
+color:rgb(112, 112, 112);
+border: none;
+}</string>
+        </property>
+       </widget>
       </widget>
      </item>
     </layout>

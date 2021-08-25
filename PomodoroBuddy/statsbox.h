@@ -7,6 +7,8 @@
 #include <QPalette>
 #include <QColor>
 #include <QPainter>
+#include "iowrapper.h"
+#include <utility>
 
 namespace Ui {
 class statsBox;
@@ -21,6 +23,7 @@ public:
     ~statsBox();
     QSize sizeHint() const;
 
+    int getPomHighscore();
 private:
     Ui::statsBox *ui;
     QPoint m_Diff;
@@ -31,6 +34,23 @@ private:
     bool dateSwitch = false;
 
     bool pomSwitch = false;
+
+    std::vector<std::string> dateAscend;
+    std::vector<std::string> dateDescend;
+    std::vector<std::string> durationAscend;
+    std::vector<std::string> durationDescend;
+    std::vector<std::string> pomodoroAscend;
+    std::vector<std::string> pomodoroDescend;
+
+    void startupDisplay();
+    void sortStats();
+    void sortPomodoro();
+    void sortDate();
+    void sortDuration();
+    int getPomodoroStat(std::string stat);
+    int getDurationStat(std::string stat);
+
+    int highscore = 0;
 
 protected:
     void paintEvent(QPaintEvent *event);

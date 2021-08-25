@@ -274,12 +274,12 @@ background-repeat: none;
 }</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="highscoreText">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>50</x>
      <y>510</y>
-     <width>211</width>
+     <width>381</width>
      <height>133</height>
     </rect>
    </property>
@@ -302,9 +302,9 @@ background-repeat: none;
   <widget class="QLabel" name="pomCounter">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>450</x>
      <y>510</y>
-     <width>211</width>
+     <width>381</width>
      <height>133</height>
     </rect>
    </property>

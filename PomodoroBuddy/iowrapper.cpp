@@ -6,6 +6,22 @@ ioWrapper::ioWrapper()
 
 }
 
+ioWrapper::ioWrapper(std::string fileName)
+{
+    std::string stat;
+
+    std::ifstream statFile ("stats.txt");
+    if(statFile.is_open()){
+        while(getline(statFile,stat)){
+            dateAscendStats.push_back(stat);
+        }
+        statFile.close();
+    }
+    else{
+        qDebug() << "No work sorry :(";
+    }
+}
+
 ioWrapper::~ioWrapper()
 {
 
@@ -24,9 +40,14 @@ ioWrapper::ioWrapper(int pomCounter, std::chrono::duration<double> elapsedTime, 
         statsFile << statString + "\n";
         statsFile.close();
     }
-    else{
+    else{ //REMOVE THIS ADD SOMETHING ELSE
         qDebug() << "No work sorry";
     }
+}
+
+std::vector<std::string> ioWrapper::getDateAscendStats()
+{
+    return dateAscendStats;
 }
 
 std::string ioWrapper::timeSplicer(std::chrono::duration<double> elapsedTime)

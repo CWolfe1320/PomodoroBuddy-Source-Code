@@ -24,6 +24,8 @@ Widget::Widget(QWidget *parent)
     connect(timer,SIGNAL(timeout()),this,SLOT(interruptFunction()));
     timerSetup();
     timer->start(1000);
+
+    ui->highscoreText->setText(QString::number(stats->getPomHighscore()));
 }
 
 Widget::~Widget()
