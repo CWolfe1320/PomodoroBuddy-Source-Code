@@ -34,5 +34,8 @@
         <file>resources/pomodoroBtn.png</file>
         <file>resources/pomodoroDescend.png</file>
         <file>resources/statsTitle.png</file>
+        <file>resources/pomodoropenguin.png</file>
+        <file>resources/SettingsTitle.png</file>
+        <file>resources/Info.png</file>
     </qresource>
 </RCC>

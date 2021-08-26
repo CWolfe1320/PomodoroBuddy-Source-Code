@@ -15,7 +15,7 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);
-    ui->timerCounter->setText("0:05");
+//    ui->timerCounter->setText("0:05");
 
     masterTime = ui->timerCounter->text();
 
@@ -305,5 +305,11 @@ void Widget::on_interruptBtn_clicked()
 void Widget::on_statsBtn_clicked()
 {
     stats->show();
+}
+
+
+void Widget::on_settingsBtn_clicked()
+{
+    settings->show();
 }
 

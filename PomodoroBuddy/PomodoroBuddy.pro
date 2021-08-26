@@ -12,17 +12,20 @@ SOURCES += \
     alertbox.cpp \
     iowrapper.cpp \
     main.cpp \
+    settingsbox.cpp \
     statsbox.cpp \
     widget.cpp
 
 HEADERS += \
     alertbox.h \
     iowrapper.h \
+    settingsbox.h \
     statsbox.h \
     widget.h
 
 FORMS += \
     alertbox.ui \
+    settingsbox.ui \
     statsbox.ui \
     widget.ui
 

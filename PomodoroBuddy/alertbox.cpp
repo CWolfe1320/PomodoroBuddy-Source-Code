@@ -99,6 +99,7 @@ void alertBox::mouseMoveEvent(QMouseEvent *event)
 void alertBox::on_closeButton_clicked()
 {
     hide();
+    acknowledged = true;
 }
 
 

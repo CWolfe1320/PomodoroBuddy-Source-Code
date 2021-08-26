@@ -9,6 +9,7 @@
 #include "alertbox.h"
 #include "statsbox.h"
 #include "iowrapper.h"
+#include "settingsbox.h"
 
 
 
@@ -41,6 +42,8 @@ private slots:
     void on_interruptBtn_clicked();
 
     void on_statsBtn_clicked();
+
+    void on_settingsBtn_clicked();
 
 private:
     Ui::Widget *ui;
@@ -94,6 +97,7 @@ private:
 
     alertBox *alert = new alertBox();
     statsBox *stats = new statsBox();
+    settingsBox *settings = new settingsBox();
 
     int pomCounter = 0;
 

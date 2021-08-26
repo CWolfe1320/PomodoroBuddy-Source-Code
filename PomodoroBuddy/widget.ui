@@ -425,6 +425,25 @@ background-repeat: none;
 }</string>
    </property>
   </widget>
+  <widget class="QGraphicsView" name="pomodoroPenguin">
+   <property name="geometry">
+    <rect>
+     <x>118</x>
+     <y>68</y>
+     <width>250</width>
+     <height>240</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#pomodoroPenguin{
+background-color:transparent;
+border-image:url(:/resources/pomodoropenguin.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

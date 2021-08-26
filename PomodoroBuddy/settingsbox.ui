@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>settingsBox</class>
+ <widget class="QWidget" name="settingsBox">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>250</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="closeBtn">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>10</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#closeBtn{
+background-color:transparent;
+border-image: url(:/resources/Close.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="divider">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>44</y>
+     <width>400</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#divider{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="border4">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>249</y>
+     <width>400</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border4{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="border1">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1</width>
+     <height>250</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border1{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="border2">
+   <property name="geometry">
+    <rect>
+     <x>399</x>
+     <y>0</y>
+     <width>1</width>
+     <height>250</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border2{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="border3">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#border3{
+background-color:transparent;
+border-image:url(:/resources/Div Line.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="settingsTitle">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>76</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#settingsTitle{
+background-color:transparent;
+border-image: url(:/resources/SettingsTitle.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="info">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>51</y>
+     <width>245</width>
+     <height>189</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#info{
+background-color:transparent;
+border-image: url(:/resources/Info.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="studytimeBox">
+   <property name="geometry">
+    <rect>
+     <x>289</x>
+     <y>51</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#studytimeBox{
+background-color: rgb(227, 252, 223);
+color: rgb(112,112,112);
+border: 1px solid rgb(32, 6, 59);
+padding: 1px 0px 1px 3px;
+}
+QListView{
+background-color: rgb(227, 252, 223);
+color: rgb(112,112,112);
+border: 1px solid rgb(32, 6, 59);
+padding: 1px 0px 1px 3px;
+}</string>
+   </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>15:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>20:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>25:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>30:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>35:00</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="breaktimeBox">
+   <property name="geometry">
+    <rect>
+     <x>289</x>
+     <y>130</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#breaktimeBox{
+background-color: rgb(227, 252, 223);
+color: rgb(112,112,112);
+border: 1px solid rgb(32, 6, 59);
+padding: 1px 0px 1px 3px;
+}
+QListView{
+background-color: rgb(227, 252, 223);
+color: rgb(112,112,112);
+border: 1px solid rgb(32, 6, 59);
+padding: 1px 0px 1px 3px;
+}</string>
+   </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>1:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>5:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>10:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>15:00</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="longbreaktimeBox">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>210</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#longbreaktimeBox{
+background-color: rgb(227, 252, 223);
+color: rgb(112,112,112);
+border: 1px solid rgb(32, 6, 59);
+padding: 1px 0px 1px 3px;
+}
+QListView{
+background-color: rgb(227, 252, 223);
+color: rgb(112,112,112);
+border: 1px solid rgb(32, 6, 59);
+padding: 1px 0px 1px 3px;
+}</string>
+   </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>10:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>25:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>30:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>45:00</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>50:00</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
