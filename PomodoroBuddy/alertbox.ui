@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Alert</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/resources/pomodoropenguin.png</normaloff>:/resources/pomodoropenguin.png</iconset>
   </property>
   <widget class="QPushButton" name="okBtn">
    <property name="geometry">
@@ -172,6 +176,8 @@ background-repeat: none;
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

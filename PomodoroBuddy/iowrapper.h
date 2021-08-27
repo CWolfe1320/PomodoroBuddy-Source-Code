@@ -4,7 +4,7 @@
 #include <fstream>
 #include <chrono>
 #include <ctime>
-#include <QDebug>
+#include <QString>
 #include <vector>
 
 class ioWrapper
@@ -26,19 +26,24 @@ public:
     //Settings->settings.txt constructor
     ioWrapper(std::string studyTime, std::string breakTime, std::string longBreakTime);
 
+    //Accessors
     std::vector<std::string> getDateAscendStats();
     int getStudyMinutes();
     int getBreakMinutes();
     int getLongBreakMinutes();
 
 private:
+    //Various splicer functions
     std::string timeSplicer(std::chrono::duration<double> elapsedTime);
     std::string dateSplicer(time_t endDate);
     std::string minuteSplicer(std::string minutes);
 
+    //settings.txt preferences
     int trueStudyMinutes;
     int trueBreakMinutes;
     int trueLongBreakMinutes;
+
+    //stats.txt data
     std::vector<std::string> dateAscendStats;
 
 };

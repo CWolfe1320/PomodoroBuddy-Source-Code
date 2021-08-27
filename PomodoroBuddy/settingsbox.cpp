@@ -5,6 +5,8 @@ settingsBox::settingsBox(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::settingsBox)
 {
+    //Constructor constructing
+
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);
 
@@ -25,6 +27,8 @@ settingsBox::settingsBox(QWidget *parent) :
 
 settingsBox::~settingsBox()
 {
+    //Settings ui widget destructor
+
     delete ui;
 }
 
@@ -35,8 +39,55 @@ QSize settingsBox::sizeHint() const
     return QSize(400,250);
 }
 
+std::string settingsBox::getTrueStudyMinutes()
+{
+    //trueStudyMinutes accessor
+
+    return trueStudyMinutes;
+}
+
+int settingsBox::getIntStudyMinutes()
+{
+    //intStudyMinutes accessor
+
+    return intStudyMinutes;
+}
+
+int settingsBox::getIntBreakMinutes()
+{
+    //intBreakMinutes accessor
+
+    return intBreakMinutes;
+}
+
+int settingsBox::getIntLongBreakMinutes()
+{
+    //intLongBreakMinutes accessor
+
+    return intLongBreakMinutes;
+}
+
+void settingsBox::refreshSettings()
+{
+    //This function will effectively redo the constructor for this class. It is called in the main widget application class when settings are refreshed.
+
+    ioWrapper settingsWrapper = ioWrapper("settings.txt", true);
+
+    intStudyMinutes = settingsWrapper.getStudyMinutes();
+    intBreakMinutes = settingsWrapper.getBreakMinutes();
+    intLongBreakMinutes = settingsWrapper.getLongBreakMinutes();
+
+    trueStudyMinutes = std::to_string(intStudyMinutes) + ":00";
+    trueBreakMinutes = std::to_string(intBreakMinutes) + ":00";
+    trueLongBreakMinutes = std::to_string(intLongBreakMinutes) + ":00";
+
+    setupSettings();
+}
+
 void settingsBox::setupSettings()
 {
+    //Initializes settings to whatever is in settings.txt
+
     int counter = 0;
     while(trueStudyMinutes != ui->studytimeBox->currentText().toStdString()){
         ui->studytimeBox->setCurrentIndex(counter);
@@ -102,12 +153,16 @@ void settingsBox::mouseMoveEvent(QMouseEvent *event)
 
 void settingsBox::on_closeBtn_clicked()
 {
+    //Closes settings window
+
     hide();
 }
 
 
 void settingsBox::on_studytimeBox_currentTextChanged(const QString &arg1)
 {
+    //Deals with handling the logic when study timing is changed
+
     std::string studyTime = arg1.toStdString();
     std::string breakTime = ui->breaktimeBox->currentText().toStdString();
     std::string longBreakTime = ui->longbreaktimeBox->currentText().toStdString();
@@ -117,6 +172,8 @@ void settingsBox::on_studytimeBox_currentTextChanged(const QString &arg1)
 
 void settingsBox::on_breaktimeBox_currentTextChanged(const QString &arg1)
 {
+    //Deals with handling the logic when break timing is changed
+
     std::string studyTime = ui->studytimeBox->currentText().toStdString();
     std::string breakTime = arg1.toStdString();
     std::string longBreakTime = ui->longbreaktimeBox->currentText().toStdString();
@@ -126,6 +183,8 @@ void settingsBox::on_breaktimeBox_currentTextChanged(const QString &arg1)
 
 void settingsBox::on_longbreaktimeBox_currentTextChanged(const QString &arg1)
 {
+    //Deals with handling the logic when long break timing is changed
+
     std::string studyTime = ui->studytimeBox->currentText().toStdString();
     std::string breakTime = ui->breaktimeBox->currentText().toStdString();
     std::string longBreakTime = arg1.toStdString();

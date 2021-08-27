@@ -5,12 +5,16 @@ alertBox::alertBox(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::alertBox)
 {
+    //alertBox constructor
+
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);
 }
 
 alertBox::~alertBox()
 {
+    //alertBox destructor
+
     delete ui;
 }
 
@@ -43,16 +47,22 @@ void alertBox::setMessage(int message)
 
 bool alertBox::getAcknowledge()
 {
+    //acknowledged accessor
+
     return acknowledged;
 }
 
 int alertBox::getCurrMessage()
 {
+    //currMessage accessor
+
     return currMessage;
 }
 
 void alertBox::setAcknowledge()
 {
+    //acknowledged mutator
+
     acknowledged = false;
 }
 
@@ -98,6 +108,8 @@ void alertBox::mouseMoveEvent(QMouseEvent *event)
 
 void alertBox::on_closeButton_clicked()
 {
+    //Closes alertBox
+
     hide();
     acknowledged = true;
 }
@@ -105,6 +117,8 @@ void alertBox::on_closeButton_clicked()
 
 void alertBox::on_okBtn_clicked()
 {
+    //Closes alertBox
+
     hide();
     acknowledged = true;
 }

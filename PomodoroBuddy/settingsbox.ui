@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Settings</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/resources/pomodoropenguin.png</normaloff>:/resources/pomodoropenguin.png</iconset>
   </property>
   <widget class="QPushButton" name="closeBtn">
    <property name="geometry">
@@ -199,7 +203,7 @@ padding: 1px 0px 1px 3px;
 }</string>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <item>
     <property name="text">
@@ -346,6 +350,8 @@ padding: 1px 0px 1px 3px;
    </item>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

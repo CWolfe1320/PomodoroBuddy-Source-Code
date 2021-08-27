@@ -1,13 +1,15 @@
 #include "iowrapper.h"
-#include <QString>
+
 
 ioWrapper::ioWrapper()
 {
-
+//ioWrapper default constructor
 }
 
 ioWrapper::ioWrapper(std::string fileName)
 {
+    //ioWrapper constructor responsible for reading in the stats.txt file
+
     std::string stat;
 
     std::ifstream statFile ("stats.txt");
@@ -17,13 +19,12 @@ ioWrapper::ioWrapper(std::string fileName)
         }
         statFile.close();
     }
-    else{
-        qDebug() << "No work sorry :(";
-    }
 }
 
 ioWrapper::ioWrapper(std::string fileName, bool differentiate)
 {
+    //ioWrapper constructor responsible for reading in the settings.txt file
+
     std::string setting;
     std::vector<std::string> settings;
 
@@ -34,9 +35,6 @@ ioWrapper::ioWrapper(std::string fileName, bool differentiate)
         }
         settingFile  .close();
     }
-    else{
-        qDebug() << "No work sorry :(";
-    }
 
     trueStudyMinutes = std::stoi(settings.at(0));
     trueBreakMinutes = std::stoi(settings.at(1));
@@ -45,11 +43,13 @@ ioWrapper::ioWrapper(std::string fileName, bool differentiate)
 
 ioWrapper::~ioWrapper()
 {
-
+//ioWrapper destructor
 }
 
 ioWrapper::ioWrapper(int pomCounter, std::chrono::duration<double> elapsedTime, time_t endDate)
 {
+    //ioWrapper constructor responsible for writing out to stats.txt
+
     std::string statString;
     std::string pcString = "Pomodoros: " + std::to_string(pomCounter);
     std::string eTime = timeSplicer(elapsedTime);
@@ -61,13 +61,12 @@ ioWrapper::ioWrapper(int pomCounter, std::chrono::duration<double> elapsedTime, 
         statsFile << statString + "\n";
         statsFile.close();
     }
-    else{ //REMOVE THIS ADD SOMETHING ELSE
-        qDebug() << "No work sorry";
-    }
 }
 
 ioWrapper::ioWrapper(std::string studyTime, std::string breakTime, std::string longBreakTime)
 {
+    //ioWrapper constructor responsible for writing out to settings.txt
+
     std::string settingStudyTime = minuteSplicer(studyTime);
     std::string settingBreakTime = minuteSplicer(breakTime);
     std::string settinglBreakTime = minuteSplicer(longBreakTime);
@@ -78,33 +77,40 @@ ioWrapper::ioWrapper(std::string studyTime, std::string breakTime, std::string l
         settingsFile << settingBreakTime + "\n";
         settingsFile << settinglBreakTime + "\n";
     }
-    else{
-        qDebug() << "Uhoh no worky";
-    }
 }
 
 std::vector<std::string> ioWrapper::getDateAscendStats()
 {
+    //dateAscendStats accessor
+
     return dateAscendStats;
 }
 
 int ioWrapper::getStudyMinutes()
 {
+    //trueStudyMinutes accessor
+
     return trueStudyMinutes;
 }
 
 int ioWrapper::getBreakMinutes()
 {
+    //trueBreakMinutes accessor
+
     return trueBreakMinutes;
 }
 
 int ioWrapper::getLongBreakMinutes()
 {
+    //trueLongBreakMinutes accessor
+
     return trueLongBreakMinutes;
 }
 
 std::string ioWrapper::timeSplicer(std::chrono::duration<double> elapsedTime)
 {
+    //Splices time down to find elapsed time
+
     int elapsedSeconds = elapsedTime.count();
     int elapsedMinutes = 0;
     int elapsedHours = 0;
@@ -144,21 +150,21 @@ std::string ioWrapper::timeSplicer(std::chrono::duration<double> elapsedTime)
 
 std::string ioWrapper::dateSplicer(time_t endDate)
 {
+    //Splices date down to find the correct date
+
     std::string tempDate = ctime(&endDate);
     std::string date;
     tempDate.pop_back();
 
     date = tempDate.substr(4,6) + ", " + tempDate.substr(20,tempDate.size());
 
-
-    qDebug() << QString::fromStdString(tempDate);
-    qDebug() << QString::fromStdString(date);
-
     return date;
 }
 
 std::string ioWrapper::minuteSplicer(std::string minutes)
 {
+    //Splices minutes
+
     int counter = 0;
     char semi = 'i';
     while(semi != ':'){

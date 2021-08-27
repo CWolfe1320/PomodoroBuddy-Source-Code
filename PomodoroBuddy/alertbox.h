@@ -21,24 +21,28 @@ public:
     ~alertBox();
     QSize sizeHint() const;
 
+    //Accessors and Mutators
     void setMessage(int message);
     bool getAcknowledge();
     int getCurrMessage();
     void setAcknowledge();
 
 private:
+    //Misc variables
     Ui::alertBox *ui;
     QPoint m_Diff;
+
+    //Switches
     bool acknowledged = false;
     int currMessage = 1;
 
-protected:
+protected: //Handles alertBox window behavior
     void paintEvent(QPaintEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
 
-private slots:
+private slots: //Handles button click behaviors
     void on_closeButton_clicked();
     void on_okBtn_clicked();
 };

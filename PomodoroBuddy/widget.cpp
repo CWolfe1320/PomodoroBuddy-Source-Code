@@ -1,35 +1,38 @@
 #include "widget.h"
 #include "ui_widget.h"
-#include <QtGui>
-#include <QDebug>
-#include <QBrush>
-#include <QPalette>
-#include <QColor>
-#include <chrono>
-#include <ctime>
+
 
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
 {
-    ui->setupUi(this);
+    ui->setupUi(this); //creates /this/ ui widget
     setWindowFlags(Qt::FramelessWindowHint);
-//    ui->timerCounter->setText("0:05");
+    ui->timerCounter->setText(QString::fromStdString(settings->getTrueStudyMinutes()));
 
-    masterTime = ui->timerCounter->text();
+    //ensures these buttons remain off until needed
+    ui->interruptBtn->setDisabled(true);
+    ui->stopBtn->setDisabled(true);
 
+    //sets up a timer that procs every 1/2 a second or second and triggers certain functions.
+    //Responsible for how the timer for the application functions, settings calls, and the interrupt function
     timer = new QTimer(this);
+    settingsTimer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(timerFunction()));
     connect(timer,SIGNAL(timeout()),this,SLOT(interruptFunction()));
+    connect(settingsTimer,SIGNAL(timeout()),this,SLOT(settingsUpdateFunction()));
     timerSetup();
     timer->start(1000);
+    settingsTimer->start(500);
 
     ui->highscoreText->setText(QString::number(stats->getPomHighscore()));
 }
 
 Widget::~Widget()
 {
+    //ui Widget object destructor
+
     delete ui;
 }
 
@@ -42,6 +45,8 @@ QSize Widget::sizeHint() const
 
 void Widget::timerFunction()
 {
+    //responsible for altering the timer. decrememting the current time
+
     if(timerProc){
         iSeconds--;
         if (iSeconds < 0 && iMinutes > 0){
@@ -59,6 +64,8 @@ void Widget::timerFunction()
 
 void Widget::interruptFunction()
 {
+    //interrupts the pomodoro buddy application when the end of a session occurs
+
     if(interruptProc){
         if(alert->getAcknowledge()){
             messageAccepted();
@@ -77,10 +84,24 @@ void Widget::interruptFunction()
     }
 }
 
+void Widget::settingsUpdateFunction()
+{
+    //will proc every 1/2 a second when timer is stopped in order to check for updated settings
+
+    if(!currSession && !interruptProc){
+        settings->refreshSettings();
+        ui->timerCounter->setText(QString::fromStdString(settings->getTrueStudyMinutes()));
+        timerSetup();
+    }
+}
 
 void Widget::on_closeBtn_clicked()
 {
     //Closes the window if the close button is pressed.
+
+    if(timerProc){
+        on_stopBtn_clicked();
+    }
 
     close();
 }
@@ -95,6 +116,8 @@ void Widget::on_minimizeBtn_clicked()
 
 void Widget::timerSetup()
 {
+    //responsible for managing timer values.
+
     QString fullTime = ui->timerCounter->text();
     QStringList timeSplit = fullTime.split(":");
 
@@ -107,18 +130,20 @@ void Widget::timerSetup()
     mMinutes = iMinutes;
     mSeconds = iSeconds;
 
-    sMinutes = 0; //CHANGE THESE LATER
-    sSeconds = 10;
+    sMinutes = settings->getIntStudyMinutes(); //CHANGE THESE LATER
+    sSeconds = 0;
 
-    bMinutes = 0;
-    bSeconds = 5;
+    bMinutes = settings->getIntBreakMinutes();
+    bSeconds = 0;
 
-    lBMinutes = 0;
-    lBSeconds = 30;
+    lBMinutes = settings->getIntLongBreakMinutes();
+    lBSeconds = 0;
 }
 
 void Widget::timerAssemble()
 {
+    //Puts the timer together so that it may be displayed
+
     QString fSeconds = QString::number(iSeconds);
     if(fSeconds.toInt() < 10){
         fSeconds = "0" + fSeconds;
@@ -129,10 +154,14 @@ void Widget::timerAssemble()
 
 void Widget::messageBox()
 {
+    //calls the alert box when timer reaches 0
+
     timerProc = false;
     interruptProc = true;
 
     alert->show();
+
+    QApplication::beep();
 
     ui->startBtn->setDisabled(true);
     ui->interruptBtn->setDisabled(true);
@@ -140,6 +169,8 @@ void Widget::messageBox()
 
 void Widget::messageAccepted()
 {
+    //Responsible for the behaviour of an accepted message. This is the switch between study->break->long break
+
     interruptProc = false;
 
 
@@ -193,12 +224,16 @@ void Widget::messageAccepted()
 
 void Widget::pomodoroAssemble()
 {
+    //displays current pomodoro streak
+
     QString pomodoroStreak = QString::number(pomCounter);
     ui->pomCounter->setText(pomodoroStreak);
 }
 
 void Widget::statTime(bool startSwitch)
 {
+    //tracks date,time, and duration
+
     if (startSwitch){
         startTime = std::chrono::system_clock::now();
     }
@@ -208,10 +243,6 @@ void Widget::statTime(bool startSwitch)
         elapsedTime = endTime - startTime;
 
         endDate = std::chrono::system_clock::to_time_t(endTime);
-
-        qDebug() << "Date + Time: " << std::ctime(&endDate);
-        qDebug() << "Elapsed time: " << elapsedTime.count() << "s";
-        qDebug() << "Pomodoros: " << pomCounter;
     }
 }
 
@@ -257,10 +288,13 @@ void Widget::paintEvent(QPaintEvent *event)
 
 void Widget::on_startBtn_clicked()
 {
+    //starts the timer and initializes sought after behavior
+
     interruptProc = false;
     timerProc = true;
     ui->startBtn->setDisabled(true);
     ui->interruptBtn->setDisabled(false);
+    ui->stopBtn->setDisabled(false);
 
     currSession = true;
 
@@ -270,12 +304,12 @@ void Widget::on_startBtn_clicked()
 
 void Widget::on_stopBtn_clicked()
 {
+    //stops the timer and initializes sought after behavior
+
     timerProc = false;
     interruptProc = false;
-    ui->timerCounter->setText(masterTime);
-    timerSetup();
     ui->startBtn->setDisabled(false);
-    ui->interruptBtn->setDisabled(false);
+    ui->interruptBtn->setDisabled(true);
 
     alert->setAcknowledge();
     alert->setMessage(1);
@@ -296,6 +330,8 @@ void Widget::on_stopBtn_clicked()
 
 void Widget::on_interruptBtn_clicked()
 {
+    //interrupts the timer
+
     interruptProc = true;
     timerProc = false;
     ui->startBtn->setDisabled(false);
@@ -304,12 +340,17 @@ void Widget::on_interruptBtn_clicked()
 
 void Widget::on_statsBtn_clicked()
 {
+    //calls the stat window
+
+    stats = new statsBox();
     stats->show();
 }
 
 
 void Widget::on_settingsBtn_clicked()
 {
+    //calls the settings window
+
     settings->show();
 }
 

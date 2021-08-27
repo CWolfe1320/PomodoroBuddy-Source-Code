@@ -14,7 +14,11 @@
    <bool>false</bool>
   </property>
   <property name="windowTitle">
-   <string>Widget</string>
+   <string>PomodoroBuddy</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/resources/pomodoropenguin.png</normaloff>:/resources/pomodoropenguin.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">#Widget{
@@ -293,7 +297,7 @@ background-repeat: none;
     <string notr="true">color:rgb(112, 112, 112);</string>
    </property>
    <property name="text">
-    <string>999</string>
+    <string>0</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -343,7 +347,7 @@ background-repeat: none;
     <string notr="true">color:rgb(112, 112, 112);</string>
    </property>
    <property name="text">
-    <string>25:00</string>
+    <string>00:00</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -445,6 +449,8 @@ background-repeat: none;
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

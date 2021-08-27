@@ -5,6 +5,12 @@
 #include <QMouseEvent>
 #include <QPoint>
 #include <QTimer>
+#include <QtGui>
+#include <QBrush>
+#include <QPalette>
+#include <QColor>
+#include <chrono>
+#include <ctime>
 
 #include "alertbox.h"
 #include "statsbox.h"
@@ -21,16 +27,17 @@ class Widget : public QWidget
 {
     Q_OBJECT
 
-public:
+public: //Constructors + public classes
     Widget(QWidget *parent = nullptr);
     ~Widget();
     QSize sizeHint() const;
 
-public slots:
+public slots: //Functions hooked to timers
     void timerFunction();
     void interruptFunction();
+    void settingsUpdateFunction();
 
-private slots:
+private slots: //Deals with actions of button clicks
     void on_closeBtn_clicked();
 
     void on_minimizeBtn_clicked();
@@ -46,10 +53,13 @@ private slots:
     void on_settingsBtn_clicked();
 
 private:
+    //Misc. variables
     Ui::Widget *ui;
     QPoint m_Diff;
     QTimer *timer;
+    QTimer *settingsTimer;
 
+    //Timer boolean variables
     bool timerProc = false;
     bool interruptProc = false;
     bool currSession = false;
@@ -94,14 +104,15 @@ private:
     void pomodoroAssemble();
     void statTime(bool startSwitch);
 
-
+    //Additional windows
     alertBox *alert = new alertBox();
     statsBox *stats = new statsBox();
     settingsBox *settings = new settingsBox();
 
+    //Pomodoro Counter
     int pomCounter = 0;
 
-protected:
+protected: //Deals with behavior of the PomodoroBuddy window
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);

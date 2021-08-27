@@ -23,13 +23,15 @@ statsBox::~statsBox()
 
 QSize statsBox::sizeHint() const
 {
-    //Forces the window size to be 400x250 pixels.
+    //Forces the window size to be 800x600 pixels.
 
     return QSize(800,600);
 }
 
 void statsBox::startupDisplay()
 {
+    //Sets display of stats on startup
+
     for(int i = 0; i < dateAscend.size(); i++){
         ui->statsDisplay->append(QString::fromStdString(dateAscend.at(i)) + "\n");
     }
@@ -37,6 +39,8 @@ void statsBox::startupDisplay()
 
 void statsBox::sortStats()
 {
+    //Sorts by ascending and descending the following criteria
+
     sortPomodoro();
     sortDate();
     sortDuration();
@@ -44,6 +48,8 @@ void statsBox::sortStats()
 
 void statsBox::sortPomodoro()
 {
+    //Sorts stats by # of Pomodoro
+
     std::pair<int,std::string> sortedPomodoros;
     std::vector<std::string> tempVector = dateAscend;
 
@@ -70,6 +76,8 @@ void statsBox::sortPomodoro()
 
 void statsBox::sortDate()
 {
+    //Sorts stats by date
+
     for(int i = dateAscend.size() - 1; i >= 0; i--){
         dateDescend.push_back(dateAscend.at(i));
     }
@@ -77,6 +85,8 @@ void statsBox::sortDate()
 
 void statsBox::sortDuration()
 {
+    //Sorts stats by duration
+
     std::vector<std::string> tempVector = dateAscend;
 
     std::vector<std::pair<int,std::string>> durPairs;
@@ -101,6 +111,8 @@ void statsBox::sortDuration()
 
 int statsBox::getPomodoroStat(std::string stat)
 {
+    //Isolates and returns the pomodoro stat
+
     std::string tempString = stat;
 
     tempString = tempString.substr(25,tempString.length());
@@ -120,6 +132,8 @@ int statsBox::getPomodoroStat(std::string stat)
 
 int statsBox::getDurationStat(std::string stat)
 {
+    //Isolates and returns the duration stat
+
     std::string tempString = stat;
 
     tempString = tempString.substr(25,tempString.length());
@@ -148,6 +162,8 @@ int statsBox::getDurationStat(std::string stat)
 
 int statsBox::getPomHighscore()
 {
+    //Highscore accessor
+
     return highscore;
 }
 
@@ -193,12 +209,16 @@ void statsBox::mouseMoveEvent(QMouseEvent *event)
 
 void statsBox::on_closeBtn_clicked()
 {
-    hide();
+    //Closes stats window
+
+    close();
 }
 
 
 void statsBox::on_dateBtn_clicked()
 {
+    //Logic for switch sorting when date btn is clicked
+
     ui->pomodoroBtn->setStyleSheet("border-image: url(:/resources/pomodoroBtn.png)");
     ui->durationBtn->setStyleSheet("border-image: url(:/resources/durationBtn.png)");
     ui->statsDisplay->clear();
@@ -222,6 +242,8 @@ void statsBox::on_dateBtn_clicked()
 
 void statsBox::on_pomodoroBtn_clicked()
 {
+    //Logic for switch sorting when pomodoro btn is clicked
+
     ui->dateBtn->setStyleSheet("border-image: url(:/resources/dateBtn.png)");
     ui->durationBtn->setStyleSheet("border-image: url(:/resources/durationBtn.png)");
     ui->statsDisplay->clear();
@@ -245,6 +267,8 @@ void statsBox::on_pomodoroBtn_clicked()
 
 void statsBox::on_durationBtn_clicked()
 {
+    //Logic for switch sorting when duration btn is clicked
+
     ui->dateBtn->setStyleSheet("border-image: url(:/resources/dateBtn.png)");
     ui->pomodoroBtn->setStyleSheet("border-image: url(:/resources/pomodoroBtn.png)");
     ui->statsDisplay->clear();
@@ -264,4 +288,3 @@ void statsBox::on_durationBtn_clicked()
         }
     }
 }
-
