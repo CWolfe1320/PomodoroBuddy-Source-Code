@@ -40,10 +40,11 @@ void statsBox::startupDisplay()
 void statsBox::sortStats()
 {
     //Sorts by ascending and descending the following criteria
-
-    sortPomodoro();
-    sortDate();
-    sortDuration();
+    if(dateAscend.size() > 0){
+        sortPomodoro();
+        sortDate();
+        sortDuration();
+    }
 }
 
 void statsBox::sortPomodoro()

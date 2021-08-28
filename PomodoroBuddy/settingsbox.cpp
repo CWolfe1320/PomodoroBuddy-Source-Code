@@ -10,15 +10,32 @@ settingsBox::settingsBox(QWidget *parent) :
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);
 
-    ioWrapper settingsWrapper = ioWrapper("settings.txt", true);
+    try {
+        ioWrapper settingsWrapper = ioWrapper("settings.txt", true);
 
-    intStudyMinutes = settingsWrapper.getStudyMinutes();
-    intBreakMinutes = settingsWrapper.getBreakMinutes();
-    intLongBreakMinutes = settingsWrapper.getLongBreakMinutes();
+        intStudyMinutes = settingsWrapper.getStudyMinutes();
+        intBreakMinutes = settingsWrapper.getBreakMinutes();
+        intLongBreakMinutes = settingsWrapper.getLongBreakMinutes();
 
-    trueStudyMinutes = std::to_string(intStudyMinutes) + ":00";
-    trueBreakMinutes = std::to_string(intBreakMinutes) + ":00";
-    trueLongBreakMinutes = std::to_string(intLongBreakMinutes) + ":00";
+        trueStudyMinutes = std::to_string(intStudyMinutes) + ":00";
+        trueBreakMinutes = std::to_string(intBreakMinutes) + ":00";
+        trueLongBreakMinutes = std::to_string(intLongBreakMinutes) + ":00";
+    }  catch (...) {
+        std::string studyTime = "25:00";
+        std::string breakTime = "5:00";
+        std::string longBreakTime = "30:00";
+        ioWrapper(studyTime, breakTime, longBreakTime);
+
+        ioWrapper settingsWrapper = ioWrapper("settings.txt", true);
+
+        intStudyMinutes = settingsWrapper.getStudyMinutes();
+        intBreakMinutes = settingsWrapper.getBreakMinutes();
+        intLongBreakMinutes = settingsWrapper.getLongBreakMinutes();
+
+        trueStudyMinutes = std::to_string(intStudyMinutes) + ":00";
+        trueBreakMinutes = std::to_string(intBreakMinutes) + ":00";
+        trueLongBreakMinutes = std::to_string(intLongBreakMinutes) + ":00";
+    }
 
     setupSettings();
 

@@ -37,3 +37,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resources.qrc
 
+#Windows icon
+win32 {
+    RC_FILE = pomodorobuddy.rc
+}
