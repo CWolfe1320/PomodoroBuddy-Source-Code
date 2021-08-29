@@ -8,7 +8,7 @@ Every 5 breaks is a longer thirty minute break. When the timer reaches zero on a
 last initialized time was. Acknowledging the warning will continue the streak, but if you let the timer reach the last initialized time the streak will be lost. When streaks are
 lost via this method, or if the timer is stopped via the "stop" button your current pomodoro streak will be recorded to be used for the highscore tracker, and general stats.
 
-# Tools & Resources used:
+# Tools & Resources used
 * Prototyping:
   * Adobe XD
   * Photoshop
@@ -20,14 +20,14 @@ lost via this method, or if the timer is stopped via the "stop" button your curr
   * Qt Creator
   
   
-# Credits:
+# Credits
 * Pomodoro Penguin art:
   * Erik O'Hara
 * Inspiration
   * Jillian Zuwala
   
   
-# License:
+# License
 
 * PomodoroBuddy is under the GNU General Public License v3.0 as required by Qt framework.
 
