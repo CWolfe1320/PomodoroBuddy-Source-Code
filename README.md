@@ -37,4 +37,4 @@ lost via this method, or if the timer is stopped via the "stop" button your curr
 
 You may find the release build of PomodoroBuddy in this repository: https://github.com/CWolfe1320/PomodoroBuddy
 
-The same lisence applies to both repositories.
+The same license applies to both repositories.
