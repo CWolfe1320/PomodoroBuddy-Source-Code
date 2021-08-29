@@ -9,19 +9,19 @@ last initialized time was. Acknowledging the warning will continue the streak, b
 lost via this method, or if the timer is stopped via the "stop" button your current pomodoro streak will be recorded to be used for the highscore tracker, and general stats.
 
 # Tools & Resources used
-* Prototyping:
+* Prototyping
   * Adobe XD
   * Photoshop
   * Visual Studio
-* Languages:
+* Languages
   * C++17
-* Other Tools:
+* Other Tools
   * Qt Framework
   * Qt Creator
   
   
 # Credits
-* Pomodoro Penguin art:
+* Pomodoro Penguin art
   * Erik O'Hara
 * Inspiration
   * Jillian Zuwala
