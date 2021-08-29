@@ -22,9 +22,9 @@ lost via this method, or if the timer is stopped via the "stop" button your curr
   
 # Credits
 * Pomodoro Penguin art
-  * Erik O'Hara
+  * [Erik O'Hara](https://www.linkedin.com/in/erik-ohara/)
 * Inspiration
-  * Jillian Zuwala
+  * [Jillian Zuwala](https://www.linkedin.com/in/jillian-zuwala/)
   
   
 # License
