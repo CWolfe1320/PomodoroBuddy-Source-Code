@@ -202,8 +202,11 @@ border: 1px solid rgb(32, 6, 59);
 padding: 1px 0px 1px 3px;
 }</string>
    </property>
+   <property name="currentText">
+    <string>25:00</string>
+   </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <item>
     <property name="text">
@@ -260,6 +263,9 @@ color: rgb(112,112,112);
 border: 1px solid rgb(32, 6, 59);
 padding: 1px 0px 1px 3px;
 }</string>
+   </property>
+   <property name="currentText">
+    <string>5:00</string>
    </property>
    <property name="currentIndex">
     <number>2</number>
@@ -319,6 +325,9 @@ color: rgb(112,112,112);
 border: 1px solid rgb(32, 6, 59);
 padding: 1px 0px 1px 3px;
 }</string>
+   </property>
+   <property name="currentText">
+    <string>30:00</string>
    </property>
    <property name="currentIndex">
     <number>2</number>

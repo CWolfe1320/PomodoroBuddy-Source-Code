@@ -212,7 +212,7 @@ void Widget::messageAccepted()
         pomCounter++;
         pomodoroAssemble();
 
-        alert->setMessage(1);
+        alert->setMessage(2);
     }
     alert->setAcknowledge();
     timerProc = true;
@@ -353,4 +353,3 @@ void Widget::on_settingsBtn_clicked()
 
     settings->show();
 }
-
